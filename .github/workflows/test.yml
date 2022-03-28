@@ -2,7 +2,12 @@ name: Github Actions
 on: [push]
 jobs:
     print-hello:
-      runs-on: ubuntu-latest
-      steps:
-        - run: echo "Hello there"
-        - run: echo "how are you?"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                node-version: '14'
+            - run: npm install
+            - name: Setup finish
+              run: echo "Everything complete"
